@@ -50,7 +50,7 @@ vercel --prod
 ### Rule34 Provider
 
 #### Search
-- `GET /api/rule34/search`
+- `GET /api/rule34/search?query=<your-query>&page=<page-number>&perPage=<items-per-page>`
   - Query params:
     - `query` (required): Search term
     - `page` (optional): Page number (default: 1)
@@ -75,7 +75,7 @@ vercel --prod
     - `perPage` (optional): Results per page (default: 10)
 
 #### Search
-- `GET /api/hanime/search`
+- `GET /api/hanime/search?query=<your-query>&page=<page-number>&perPage=<items-per-page>`
   - Query params:
     - `query` (required): Search term
     - `page` (optional): Page number (default: 1)
@@ -94,7 +94,7 @@ vercel --prod
 ### HentaiHaven Provider
 
 #### Search
-- `GET /api/hentai-haven/search`
+- `GET /api/hentai-haven/search?query=<your-query>&page=<page-number>&perPage=<items-per-page>`
   - Query params:
     - `query` (required): Search term
 
