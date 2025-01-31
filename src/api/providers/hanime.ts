@@ -19,6 +19,7 @@ export default class Hanime {
         tags: [],
         search_text: "",
         tags_mode: "AND",
+        hitsPerPage: perPage
       }),
     });
 
@@ -30,19 +31,15 @@ export default class Hanime {
       hits: string;
     };
 
-    const allResults = (JSON.parse(data.hits) as RawSearchResult[]).map(mapToSearchResult);
-    const startIndex = (page - 1) * perPage;
-    const endIndex = startIndex + perPage;
-    const results = allResults.slice(startIndex, endIndex);
-
+    const results = (JSON.parse(data.hits) as RawSearchResult[]).map(mapToSearchResult);
 
     return {
-      pages: Math.ceil(data.nbHits / perPage),
+      pages: data.nbPages,
       total: data.nbHits,
       previous: page - 1,
       next: page + 1,
-      hasNextPage: page < Math.ceil(data.nbHits / perPage),
-     page,
+      hasNextPage: page < data.nbPages,
+      page,
       results: results,
     };
   }
